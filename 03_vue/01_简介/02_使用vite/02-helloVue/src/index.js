@@ -2,11 +2,12 @@
  * @Author: cavonLucky 425247833@qq.com
  * @Date: 2023-05-06 12:58:45
  * @LastEditors: cavonLucky 425247833@qq.com
- * @LastEditTime: 2023-05-06 16:11:16
+ * @LastEditTime: 2023-05-06 17:22:46
  * @FilePath: /vue-course/03_vue/01_简介/02_使用vite/02-helloVue/src/index.js
  */
-import { createApp } from 'vue/dist/vue.esm-bundler.js';
-import App from './App';
+// import { createApp } from 'vue/dist/vue.esm-bundler.js';
+import { createApp } from "vue";
+import App from './App.vue';
 
 // 创建应用并挂载
 // createApp(App).mount('#root');
