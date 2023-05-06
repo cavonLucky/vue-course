@@ -1,0 +1,42 @@
+<!--
+ * @Author: cavonLucky 425247833@qq.com
+ * @Date: 2023-05-06 08:30:52
+ * @LastEditors: cavonLucky 425247833@qq.com
+ * @LastEditTime: 2023-05-06 08:50:36
+ * @FilePath: /vue-course/03_vue/01_简介/01_直接在网页中使用/02_组件中的data.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组件中的data</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+
+  <div id="app"></div>
+
+  <script>
+    // 组件是用来创建组件实例的（vm）
+    const Root = {
+      // 创建一个按钮，可以显示按钮的点击次数
+      template: '<button @click="count++">点我一下</button> - 点了{{ count }}次',
+      data() {
+        return {
+          count: 0, // 记录点击次数
+
+          // data 中的数据会自动和使用它的视图绑定，数据发生变化视图会自动刷新
+        }
+      }
+    };
+
+    Vue.createApp(Root).mount('#app');
+
+  </script>
+</body>
+
+</html>
