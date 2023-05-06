@@ -1,9 +1,9 @@
 <!--
  * @Author: cavonLucky 425247833@qq.com
- * @Date: 2023-05-05 16:01:53
+ * @Date: 2023-05-05 17:09:27
  * @LastEditors: cavonLucky 425247833@qq.com
- * @LastEditTime: 2023-05-05 17:09:41
- * @FilePath: /vue-course/03_vue/01_简介/01_直接在网页中使用/index.html
+ * @LastEditTime: 2023-05-06 08:26:27
+ * @FilePath: /vue-course/03_vue/01_简介/01_直接在网页中使用/01_helloworld.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +11,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vue简介</title>
-  <!-- 引入vue -->
+  <title>hello vue</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
@@ -23,13 +22,19 @@
     // 组件用来创建组件实例，组件是组件实例的模板
     // 组件 --> 组件生成组件实例 --> 虚拟DOM --> DOM（在页面中呈现）
     const Root = {
-      template: "<h1>我不爱…爱Vue</h1>", // 希望组件在页面中呈现的样子
-
+      // 在模板中可以直接访问组件实例中的属性, 可以通过 {{ 属性名 }} 来访问到组件实例中的属性
+      template: '<h1>hello vue，{{ message }}</h1>', // 希望组件在页面中呈现的样子
+      // data 是一个函数，需要一个对象作为返回值
+      data() { // data 方法返回的对象，其中的属性会自动的添加到组件实例中
+        return {
+          message: '你真好棒！',
+        }
+      }
     };
 
     // 创建app实例
     // const app = Vue.createApp(Root);
-    // 将实例在页面中挂载
+    // 将实例挂载到页面中
     // app.mount('#app');
 
     Vue.createApp(Root).mount('#app');
