@@ -2,12 +2,12 @@
  * @Author: cavonLucky 425247833@qq.com
  * @Date: 2023-05-06 14:02:02
  * @LastEditors: cavonLucky 425247833@qq.com
- * @LastEditTime: 2023-05-06 15:42:17
+ * @LastEditTime: 2023-05-06 16:10:53
  * @FilePath: /vue-course/03_vue/01_简介/02_使用vite/02-helloVue/src/App.js
  */
 
 // 1. 引入子组件
-import MyButton from "../MyButton";
+import MyButton from "./components/MyButton";
 
 
 
