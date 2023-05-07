@@ -2,7 +2,7 @@
  * @Author: cavonLucky 425247833@qq.com
  * @Date: 2023-05-06 21:18:18
  * @LastEditors: cavonLucky 425247833@qq.com
- * @LastEditTime: 2023-05-07 16:10:23
+ * @LastEditTime: 2023-05-07 16:27:12
  * @FilePath: /vue-course/03_vue/02_vue的基础/test/01_proxy.js
  */
 // 创建一个对象
@@ -17,6 +17,8 @@ const obj = {
  * 希望在修改一个属性的同时，利用进行一些其他的操作，比如：触发元素重新渲染
  *
  * 要实现这个目的必须要对对象进行改造， vue3中使用的是代理模式来完成对象的改造
+ * 
+ * 设置代理时不会对原对象产生影响
  */
 
 // obj.name = '猪八戒';
