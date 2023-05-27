@@ -2,8 +2,8 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-05-23 20:41:44
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-05-27 15:11:25
- * @FilePath: /vue-course/03_vue/04_模板/src/01_组合式API补充.vue
+ * @LastEditTime: 2023-05-27 15:12:40
+ * @FilePath: /vue-course/03_vue/04_模板/src/04_style-scoped.vue
 -->
 
 <script setup>
