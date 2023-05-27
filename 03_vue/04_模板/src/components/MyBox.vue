@@ -3,7 +3,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-05-27 11:21:00
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-05-27 15:06:55
+ * @LastEditTime: 2023-05-27 16:11:17
  * @FilePath: /vue-course/03_vue/04_模板/src/components/MyBox.vue
 -->
 
@@ -18,14 +18,18 @@
 
   <!-- <div></div> -->
 
-  <div>
+  <!-- <div>
+    <h2>我是MyBox组件</h2>
+  </div> -->
+
+  <div :class="$style.box1">
     <h2>我是MyBox组件</h2>
   </div>
 </template>
 
 
-<style scoped>
-  div {
+<style module>
+  .box1 {
     background: hotpink;
   }
 </style>
