@@ -2,8 +2,8 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-05-29 15:39:12
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-05-30 10:31:36
- * @FilePath: /vue-course/03_vue/06_props/src/App.vue
+ * @LastEditTime: 2023-05-30 10:32:57
+ * @FilePath: /vue-course/03_vue/06_props/src/01_props.vue
 -->
 
 <script setup>
