@@ -29,3 +29,18 @@
   4. 自动创建项目
       - `npm init vue@latest`
       - `yarn create vue`
+
+### 网页的渲染
+  - 浏览器在渲染网页时，做了哪些事：
+    1. 加载页面的html和css（源码）
+    2. html转换为DOM，css转换为CSSOM
+    3. 使用DOM和CSSOM构建成一棵渲染树
+    4. 对渲染树进行reflow（回流、重排）（计算元素的位置）
+    5. 对网页进行绘制repaint（重绘）
+  - 渲染树（Render Tree）
+    1. 从根元素来检查哪些元素可见，以及他们的样式
+    2. 忽略那些不可见的元素（display:none）
+  - 重排、回流
+    - 计算渲染树中元素的大小和位置
+  - 重绘
+    - 绘制页面
