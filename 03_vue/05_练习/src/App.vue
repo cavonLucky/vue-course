@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-05-28 15:18:24
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-05-29 15:24:34
+ * @LastEditTime: 2023-05-30 16:42:38
  * @FilePath: /vue-course/03_vue/05_练习/src/App.vue
 -->
 
@@ -12,12 +12,19 @@ import TabItem from './components/TabItem.vue';
 // 创建一个变量来记录选项卡的状态
 const current = ref(0); // 0 表示球员 1 表示球队
 
-const player = reactive({
-  name: '梅西',
-  img: '/images/messi.png',
-  rate: 1,
-  hot: 433760
-})
+const player = reactive([
+  { name: '里奥·梅西', img: '/images/messi.png', rate: 1, hot: 433760 },
+  { name: '内马尔·达席尔瓦·儒尼奥尔', img: '/images/neymar.png', rate: 2, hot: 274762 },
+  { name: '克里斯蒂亚诺·罗纳尔多', img: '/images/ronaldo.png', rate: 3, hot: 273060 }
+]);
+
+const team = reactive([
+  { name: '法国', img: '/images/法国.jpg', rate: 1, hot: 183845 },
+  { name: '巴西', img: '/images/巴西.jpg', rate: 2, hot: 183421 },
+  { name: '荷兰', img: '/images/荷兰.jpg', rate: 3, hot: 173123 },
+]);
+
+const maxHot = player[0].hot;
 
 </script>
 
@@ -41,91 +48,18 @@ const player = reactive({
       <div v-show="current === 0">
         <!-- 球员 -->
         <div class="tab-list">
-          <!-- <TabItem a="dddd" b="vvvvv" c="sssss"></TabItem> -->
-          <TabItem :item="player"></TabItem>
-          <!-- <div class="tab-item">
-            <div class="photo">
-              <img src="/images/messi.png" alt="梅西">
-              <span class="ranking-one">1</span>
-            </div>
-            <div class="desc">
-              <span class="name">梅西</span>
-              <div class="hot-bar">
-                <div class="inner">433760热度</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-item">
-            <div class="photo">
-              <img src="/images/ronaldo.png" alt="C罗">
-              <span>2</span>
-            </div>
-            <div class="desc">
-              <span class="name">C罗</span>
-              <div class="hot-bar">
-                <div class="inner hot2">233967热度</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-item">
-            <div class="photo">
-              <img src="/images/neymar.png" alt="内马尔">
-              <span>3</span>
-            </div>
-            <div class="desc">
-              <span class="name">内马尔</span>
-              <div class="hot-bar">
-                <div class="inner hot3">222343热度</div>
-              </div>
-            </div>
-          </div> -->
+          <TabItem :item="player[0]" :max-hot="maxHot" />
+          <TabItem :item="player[1]" :max-hot="maxHot" />
+          <TabItem :item="player[2]" :max-hot="maxHot" />
         </div>
       </div>
 
       <div v-show="current === 1">
         <!-- 球队 -->
         <div class="tab-list">
-          <TabItem :item="{ name: '法国', rate: 1, img: '/images/法国.jpg', hot: 183845 }"></TabItem>
-          <!-- <div class="tab-item">
-            <div class="photo">
-              <img src="/images/法国.jpg" alt="法国">
-              <span class="ranking-one">1</span>
-            </div>
-            <div class="desc">
-              <span class="name">法国</span>
-              <div class="hot-bar">
-                <div class="inner">183845热度</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-item">
-            <div class="photo">
-              <img src="/images/巴西.jpg" alt="巴西">
-              <span>2</span>
-            </div>
-            <div class="desc">
-              <span class="name">巴西</span>
-              <div class="hot-bar">
-                <div class="inner">183421热度</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-item">
-            <div class="photo">
-              <img src="/images/荷兰.jpg" alt="荷兰">
-              <span>3</span>
-            </div>
-            <div class="desc">
-              <span class="name">荷兰</span>
-              <div class="hot-bar">
-                <div class="inner">173123热度</div>
-              </div>
-            </div>
-          </div> -->
+          <TabItem :item="team[0]" :max-hot="maxHot" />
+          <TabItem :item="team[1]" :max-hot="maxHot" />
+          <TabItem :item="team[2]" :max-hot="maxHot" />
         </div>
       </div>
     </div>
