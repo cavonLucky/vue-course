@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-05-28 15:18:24
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-05-30 16:42:38
+ * @LastEditTime: 2023-05-30 18:16:46
  * @FilePath: /vue-course/03_vue/05_练习/src/App.vue
 -->
 
@@ -12,19 +12,20 @@ import TabItem from './components/TabItem.vue';
 // 创建一个变量来记录选项卡的状态
 const current = ref(0); // 0 表示球员 1 表示球队
 
-const player = reactive([
+const players = reactive([
   { name: '里奥·梅西', img: '/images/messi.png', rate: 1, hot: 433760 },
   { name: '内马尔·达席尔瓦·儒尼奥尔', img: '/images/neymar.png', rate: 2, hot: 274762 },
   { name: '克里斯蒂亚诺·罗纳尔多', img: '/images/ronaldo.png', rate: 3, hot: 273060 }
 ]);
 
-const team = reactive([
-  { name: '法国', img: '/images/法国.jpg', rate: 1, hot: 183845 },
-  { name: '巴西', img: '/images/巴西.jpg', rate: 2, hot: 183421 },
+const teams = reactive([
+  { name: '法国', img: '/images/法国.jpg', rate: 1, hot: 283845 },
+  { name: '巴西', img: '/images/巴西.jpg', rate: 2, hot: 203421 },
   { name: '荷兰', img: '/images/荷兰.jpg', rate: 3, hot: 173123 },
 ]);
 
-const maxHot = player[0].hot;
+const playersMaxHot = players[0].hot;
+const teamsMaxHot = teams[0].hot;
 
 </script>
 
@@ -48,18 +49,14 @@ const maxHot = player[0].hot;
       <div v-show="current === 0">
         <!-- 球员 -->
         <div class="tab-list">
-          <TabItem :item="player[0]" :max-hot="maxHot" />
-          <TabItem :item="player[1]" :max-hot="maxHot" />
-          <TabItem :item="player[2]" :max-hot="maxHot" />
+          <TabItem v-for="(player, index) in players" :key="index" :item="player" :max-hot="playersMaxHot" />
         </div>
       </div>
 
       <div v-show="current === 1">
         <!-- 球队 -->
         <div class="tab-list">
-          <TabItem :item="team[0]" :max-hot="maxHot" />
-          <TabItem :item="team[1]" :max-hot="maxHot" />
-          <TabItem :item="team[2]" :max-hot="maxHot" />
+          <TabItem v-for="(team, index) in teams" :item="team" :key="index" :max-hot="teamsMaxHot" />
         </div>
       </div>
     </div>

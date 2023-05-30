@@ -1,36 +1,25 @@
 <!--
  * @Author: chengxy666 425247833@qq.com
- * @Date: 2023-05-30 11:09:12
+ * @Date: 2023-05-30 17:56:32
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-05-30 11:39:04
+ * @LastEditTime: 2023-05-30 18:05:02
  * @FilePath: /vue-course/03_vue/06_props/src/App.vue
 -->
 
 <script setup>
 import { ref } from 'vue';
-import A from './components/A.vue';
-import B from './components/B.vue';
 
-const isShow = ref(true);
-// const isShow = ref(false);
+const arr = ref(['孙悟空', '猪八戒', '沙和尚']);
 
 </script>
 
 <template>
-  <!--
-    component 是一个动态组件
-      - component最终以什么标签呈现由is属性决定
-  -->
-  <!-- <component v-bind:is="'h1'">我是一个component</component> -->
-  <!-- <component is="h1">我是一个component</component>
-  <component is="h2">我是一个component</component>
-  <component is="h3">我是一个component</component>
-  <component is="div">我是一个component</component>
-  <component is="p">我是一个component</component> -->
 
-  <!-- <component :is="A"></component> -->
-  <!-- <component :is="B"></component> -->
+  <ul>
+    <!-- <li>{{ arr[0] }}</li>
+    <li>{{ arr[1] }}</li>
+    <li>{{ arr[2] }}</li> -->
 
-  <button @click="isShow = !isShow">切换</button>
-  <component :is="isShow ? A : B"></component>
+    <li v-for="name in arr">{{ name }}</li>
+  </ul>
 </template>
