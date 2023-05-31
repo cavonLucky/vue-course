@@ -1,0 +1,65 @@
+<!--
+ * @Author: chengxy666 425247833@qq.com
+ * @Date: 2023-05-30 18:31:55
+ * @LastEditors: chengxy666 425247833@qq.com
+ * @LastEditTime: 2023-05-31 10:15:20
+ * @FilePath: /vue-course/03_vue/index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>重绘/重排</title>
+  <style>
+    .box1 {
+      width: 200px;
+      height: 200px;
+      background-color: orange;
+    }
+
+    .box2 {
+      background-color: tomato;
+    }
+
+    .box3 {
+      width: 300px;
+      height: 400px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 第一次就对网页进行重绘、重排了 -->
+
+  <!-- <div class="box1"></div> -->
+
+  <button id="btn">点我一下</button>
+  <hr>
+  <div id="box1" class="box1">尽管我不会飞但是我会奔跑啊</div>
+
+  <script>
+    btn.onclick = () => {
+      // 重绘
+      // box1.classList.add('box2');
+
+      // 重排 + 重绘
+      // box1.style.width = '300px';
+      // box1.style.height = '400px';
+      // box1.style.fontSize = '20px';
+
+      // 可以通过修改class来间接的影响样式，来减少重排的次数
+      // box1.classList.add('box3');
+      box1.style.display = 'none';
+      box1.style.width = '300px';
+      box1.style.height = '400px';
+      box1.style.fontSize = '20px';
+      box1.style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>
