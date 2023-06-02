@@ -2,15 +2,14 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-05-28 15:18:24
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-02 12:23:51
+ * @LastEditTime: 2023-06-02 14:15:05
  * @FilePath: /vue-course/03_vue/05_练习/src/App.vue
 -->
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { reactive } from 'vue';
 import Tab from './components/Tab.vue';
-// 创建一个变量来记录选项卡的状态
-const current = ref(0); // 0 表示球员 1 表示球队
+import TabList from './components/TabList.vue';
 
 const players = reactive([
   { name: '里奥·梅西', img: '/images/messi.png', rate: 1, hot: 433760 },
@@ -21,7 +20,7 @@ const players = reactive([
 const teams = reactive([
   { name: '法国', img: '/images/法国.jpg', rate: 1, hot: 283845 },
   { name: '巴西', img: '/images/巴西.jpg', rate: 2, hot: 203421 },
-  { name: '荷兰', img: '/images/荷兰.jpg', rate: 3, hot: 173123 },
+  { name: '荷兰', img: '/images/荷兰.jpg', rate: 3, hot: 173123 }
 ]);
 
 const playersMaxHot = players[0].hot;
@@ -30,7 +29,10 @@ const teamsMaxHot = teams[0].hot;
 </script>
 
 <template>
-  <Tab />
+  <Tab>
+    <template #0><TabList :items="players" :max-hot="playersMaxHot" /></template>
+    <template #1><TabList :items="teams" :max-hot="teamsMaxHot" /></template>
+  </Tab>
 </template>
 
 
