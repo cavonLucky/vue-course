@@ -2,13 +2,13 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-05-28 15:18:24
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-02 11:50:02
+ * @LastEditTime: 2023-05-30 18:16:46
  * @FilePath: /vue-course/03_vue/05_练习/src/App.vue
 -->
 
 <script setup>
 import { ref, reactive } from 'vue';
-import TabList from './components/TabList.vue';
+import TabItem from './components/TabItem.vue';
 // 创建一个变量来记录选项卡的状态
 const current = ref(0); // 0 表示球员 1 表示球队
 
@@ -48,12 +48,16 @@ const teamsMaxHot = teams[0].hot;
        -->
       <div v-show="current === 0">
         <!-- 球员 -->
-        <TabList :items="players" :max-hot="playersMaxHot" />
+        <div class="tab-list">
+          <TabItem v-for="(player, index) in players" :key="index" :item="player" :max-hot="playersMaxHot" />
+        </div>
       </div>
 
       <div v-show="current === 1">
         <!-- 球队 -->
-        <TabList :items="teams" :max-hot="teamsMaxHot" />
+        <div class="tab-list">
+          <TabItem v-for="(team, index) in teams" :item="team" :key="index" :max-hot="teamsMaxHot" />
+        </div>
       </div>
     </div>
   </div>
