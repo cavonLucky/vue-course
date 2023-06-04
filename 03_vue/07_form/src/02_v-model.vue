@@ -2,8 +2,8 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-03 17:17:55
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-04 11:39:05
- * @FilePath: /vue-course/03_vue/07_form/src/App.vue
+ * @LastEditTime: 2023-06-04 11:43:55
+ * @FilePath: /vue-course/03_vue/07_form/src/02_v-model.vue
 -->
 <script setup>
 // let text = '';
