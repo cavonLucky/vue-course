@@ -2,13 +2,15 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-05 16:28:37
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-05 17:23:36
+ * @LastEditTime: 2023-06-05 17:51:01
  * @FilePath: /vue-course/03_vue/08_state/src/components/ComponentA.vue
 -->
 
 <script setup>
 
-import { ref, inject } from 'vue';
+// import { ref, inject } from 'vue';
+// import { countStore }from '../store/count';
+import { countStore } from '@/store/count';
 
 // const count = ref(0);
 
@@ -31,13 +33,13 @@ import { ref, inject } from 'vue';
 
 */
 
-const { count, increment } = inject('count');
+// const { count, increment } = inject('count');
 
 </script>
 
 <template>
   <h3>
-    ComponentA -- {{ count }} --
-    <button @click="increment">按钮</button>
+    ComponentA -- {{ countStore.count }} --
+    <button @click="countStore.increment">按钮</button>
   </h3>
 </template>
