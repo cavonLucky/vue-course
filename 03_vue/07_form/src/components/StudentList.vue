@@ -2,23 +2,20 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-04 14:29:57
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-05 12:44:01
+ * @LastEditTime: 2023-06-05 15:54:17
  * @FilePath: /vue-course/03_vue/07_form/src/components/StudentList.vue
 -->
 
 <script setup>
 
 import StudentItem from './StudentItem.vue';
+// import { inject, provide } from 'vue';
 
-// let props = defineProps(['students', 'fn']);
-// let emits = defineEmits(['delStu']);
+// const name = inject('name');
+// console.log(name);
 
-// // 定义一个删除学生的方法
-// const delStuHandler = (index) => {
-//   if (confirm('该操作不可恢复，请确认')) {
-//     emits('delStu', index);
-//   }
-// }
+// provide('msg', '哈哈哈');
+// provide('name', '嘻嘻嘻');
 
 </script>
 
@@ -36,7 +33,8 @@ import StudentItem from './StudentItem.vue';
       </tr>
     </thead>
     <!-- <StudentItem :students="props.students" @del-stu="emits('delStu', $event)" /> -->
-    <StudentItem :students="$attrs.students" @del-stu="$attrs.onDelStu" />
+    <!-- <StudentItem :students="$attrs.students" @del-stu="$attrs.onDelStu" /> -->
+    <StudentItem />
   </table>
 </template>
 

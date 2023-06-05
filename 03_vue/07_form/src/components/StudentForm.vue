@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-04 16:25:53
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-05 12:05:58
+ * @LastEditTime: 2023-06-05 16:02:39
  * @FilePath: /vue-course/03_vue/07_form/src/components/StudentForm.vue
 -->
 
@@ -10,9 +10,14 @@
 // const props = defineProps(['newStu']);
 // console.log(props);
 
-import { ref } from 'vue';
+import { ref, inject } from 'vue';
+
+// 必须得有一个依赖关系，比如 父子、后代、子孙，因为StudentForm组件和StudentList组件没什么关系，显然获取的msg为undefined
+// const mag = inject('mag');
+// console.log('form组件', mag); // undefined
 
 const emits = defineEmits(['addStudent']);
+const { addStu } = inject('student');
 
 const newStu = ref({
   name: '',
@@ -25,7 +30,8 @@ const submitHandler = () => {
   // console.log(newStu.value);
   // 调用方法，将newStu添加到数据中
   // emits('addStudent', Object.assign({}, newStu.value));
-  emits('addStudent', { ...newStu.value });
+  // emits('addStudent', { ...newStu.value });
+  addStu({ ...newStu.value });
 
   newStu.value.name = '';
   newStu.value.age = 1;
