@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-05 16:28:37
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-05 17:51:01
+ * @LastEditTime: 2023-06-05 20:11:12
  * @FilePath: /vue-course/03_vue/08_state/src/components/ComponentA.vue
 -->
 
@@ -11,6 +11,11 @@
 // import { ref, inject } from 'vue';
 // import { countStore }from '../store/count';
 import { countStore } from '@/store/count';
+// 引入store钩子
+import { useCountStore } from '../store/countStore';
+
+// 获取store实例
+const countStore2 = useCountStore();
 
 // const count = ref(0);
 
@@ -38,8 +43,14 @@ import { countStore } from '@/store/count';
 </script>
 
 <template>
-  <h3>
-    ComponentA -- {{ countStore.count }} --
-    <button @click="countStore.increment">按钮</button>
-  </h3>
+  <div>
+    <h3>
+      ComponentA -- {{ countStore.count }} --
+      <button @click="countStore.increment">按钮</button>
+    </h3>
+    <h3>
+      ComponentA -- {{ countStore2.count }} -- {{ countStore2.name }} -- {{ countStore2.double }}
+      <button @click="countStore2.increment">按钮</button>
+    </h3>
+  </div>
 </template>
