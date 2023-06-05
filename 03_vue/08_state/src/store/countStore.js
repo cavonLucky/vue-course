@@ -2,13 +2,14 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-05 18:41:21
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-05 20:11:57
+ * @LastEditTime: 2023-06-05 20:20:40
  * @FilePath: /vue-course/03_vue/08_state/src/store/countStore.js
  */
 
 // 引入函数 defineStore()
 import { defineStore } from 'pinia';
 import { countStore } from './count';
+import { computed, ref } from 'vue';
 
 /**
  * 通过函数来创建store
@@ -35,3 +36,15 @@ export const useCountStore = defineStore("count", {
     }
   }
 })
+
+// export const useCountStore = defineStore('count', () => {
+//   // 定义数据
+//   const count = ref(50);
+//   const name = ref('孙悟空');
+//   const double = computed(() => count.value * 2);
+//   function increment() {
+//     count.value++;
+//   }
+
+//   return { count, name, double, increment };
+// })

@@ -2,14 +2,13 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-05 16:28:37
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-05 20:11:12
+ * @LastEditTime: 2023-06-05 20:13:49
  * @FilePath: /vue-course/03_vue/08_state/src/components/ComponentA.vue
 -->
 
 <script setup>
 
 // import { ref, inject } from 'vue';
-// import { countStore }from '../store/count';
 import { countStore } from '@/store/count';
 // 引入store钩子
 import { useCountStore } from '../store/countStore';
