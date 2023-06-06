@@ -2,11 +2,13 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 20:32:56
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-06 21:13:11
+ * @LastEditTime: 2023-06-06 21:56:17
  * @FilePath: /vue-course/03_vue/09_meals/src/components/Meals/Meal.vue
 -->
 
 <script setup>
+
+import Counter from '../UI/Counter.vue';
 
 const props = defineProps(['meal']);
 const { meal } = props;
@@ -25,8 +27,10 @@ console.log(meal);
         <p>{{ meal.desc }}</p>
       </div>
 
-
-      <!-- {{ meal.price }} -->
+      <div class="price-btn">
+        <span class="price">{{ meal.price }}</span>
+        <Counter />
+      </div>
     </div>
   </div>
 </template>
@@ -60,5 +64,21 @@ console.log(meal);
 
 }
 
-.desc {}
+.price-btn {
+  margin-top: 40rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.price {
+  font-size: 30rem;
+  font-weight: bold;
+}
+
+.price::before {
+  content: '¥';
+}
+
+
+
 </style>
