@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 20:22:26
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-06 20:39:52
+ * @LastEditTime: 2023-06-06 21:10:15
  * @FilePath: /vue-course/03_vue/09_meals/src/components/Meals/Meals.vue
  * @Description: 所有的汉堡列表相关的组件
 -->
@@ -28,8 +28,7 @@ console.log('pppp', meals);
 <style scoped>
 .meals {
   height: 100vh;
-  background-color: pink;
   overflow: auto;
-  padding: 120rem 0;
+  /* padding: 120rem 0; */
 }
 </style>
