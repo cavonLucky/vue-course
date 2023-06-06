@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-05 20:23:12
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-05 20:44:38
+ * @LastEditTime: 2023-06-06 17:43:55
  * @FilePath: /vue-course/03_vue/08_state/src/store/studentStore.js
  */
 import { defineStore } from 'pinia';
@@ -18,14 +18,22 @@ export const useStudentStore = defineStore('student', {
 
   getters: {
     title: state => {
-      return 'Mr.' + state.name
+      return 'Mr.' + state.name;
+    },
+    double() {
+      return this.age * 2;
     }
   },
 
   actions: {
     growUp() {
+      throw new Error('出错啦～～');
       this.age++;
     }
+    // growUp: (...args) => {
+    //   console.log(args);
+    //   // this.age++;
+    // }
   }
 })
 

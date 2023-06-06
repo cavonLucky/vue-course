@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-05 17:08:27
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-06 15:08:54
+ * @LastEditTime: 2023-06-06 17:44:57
  * @FilePath: /vue-course/03_vue/08_state/src/components/ComponentC.vue
 -->
 
@@ -21,7 +21,6 @@ import { storeToRefs } from 'pinia';
 
 import { useStudentStore } from '@/store/studentStore';
 const stuStore = useStudentStore();
-console.log(stuStore);
 
 /*
   store实例本事就是一个reactive对象，可以通过它直接访问state中的数据，
@@ -40,7 +39,8 @@ console.log(stuStore);
 // const { name, age } = stuStore;
 // 不能解构方法
 // const { name, age, title, growUp } = storeToRefs(stuStore);
-const { name, age, title, skills } = storeToRefs(stuStore);
+// const { name, age, title, skills } = storeToRefs(stuStore);
+const { name, age, title } = storeToRefs(stuStore);
 
 // state 中的属性（方法），都可以通过store对象直接访问
 
@@ -77,7 +77,9 @@ stuStore.$subscribe((mutation, state) => {
   // console.log('mutation', mutation, mutation.type);
   // console.log('mutation', mutation);
   // console.log('mutation', mutation.events);
-  console.log('mutation', mutation.events[0] === mutation.events[1]);
+  // console.log('mutation', mutation.events[0] === mutation.events[1]);
+
+  // console.log('mutation', mutation.payload);
 
   // if (state.token) {
   //   // 表示登录，向本地存储中添加内容
@@ -87,8 +89,38 @@ stuStore.$subscribe((mutation, state) => {
 
   // 使用订阅时不要在回调函数中直接修改state
   // state.age++;
-  console.log(' state发生变化了', state, state.name);
+  // console.log(' state发生变化了', state, state.name);
 }, { detached: true })
+
+// $onAction 用来订阅action的调用
+stuStore.$onAction(({ name, store, args, after, onError }) => {
+
+  /**
+      name 调用的action的名字
+      store store的实例
+      args action接收到的参数
+      after() 可以设置一个回调函数，函数会在action成功调用后触发
+      onError() 可以设置一个回调函数，函数会在action调用失败后触发
+   */
+
+
+  // console.log('onAction执行了～');
+  // console.log('onAction执行了～', args);
+
+  // console.log(name); // growUp
+  // console.log(store); // Proxy(Object)
+  // console.log(args); // [PointerEvent] || [123]
+  // console.log(after); // after(callback)
+  // console.log(onError); // onError(callback)
+
+  after(() => {
+    console.log(name + '成功执行了'); // growUp成功执行了
+  });
+
+  onError((err) => {
+    console.log(name + '执行失败！', err); // growUp执行失败！…………
+  })
+})
 
 </script>
 
@@ -102,9 +134,12 @@ stuStore.$subscribe((mutation, state) => {
       <!-- ComponentC -- {{ stuStore.name }} -- {{ stuStore.age }} -->
       <!-- ComponentC -- {{ name }} -- {{ age }} -->
       <!-- ComponentC -- {{ name }} -- {{ age }} -- {{ stuStore.title }} -->
-      ComponentC -- {{ name }} -- {{ age }} -- {{ title }} -- {{ skills }}
-      <button @click="stuStore.growUp">长大</button>
+      <!-- ComponentC -- {{ name }} -- {{ age }} -- {{ title }} -- {{ stuStore.skills }} -->
+      ComponentC -- {{ name }} -- {{ age }} -- {{ title }} -- {{ stuStore.skills }} -- {{ stuStore.double }}
       <!-- <button @click="growUp">长大</button> -->
+      <!-- <button @click="stuStore.growUp(stuStore)">长大</button> -->
+      <!-- <button @click="stuStore.growUp(123)">长大</button> -->
+      <button @click="stuStore.growUp">长大</button>
       <hr>
       <!-- <button @click="stuStore.name = '孙大圣'">修改name</button> -->
       <button @click="name = '孙大圣'">state修改name</button>
