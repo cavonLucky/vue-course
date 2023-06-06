@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-05 17:08:27
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-05 21:18:15
+ * @LastEditTime: 2023-06-06 15:08:54
  * @FilePath: /vue-course/03_vue/08_state/src/components/ComponentC.vue
 -->
 
@@ -60,8 +60,36 @@ const clickHandler2 = () => {
   // stuStore.skills.push('救命毫毛');
 
   // 直接替换等价于stuStore.$patch = { name: '孙孙孙' };
-  stuStore.$state = { name: '孙孙孙' };
+  stuStore.$state = { name: '孙孙孙' }; // mutation.type为patch function的原因是在它内部调用 `$patch()`
 }
+
+/**
+  store 的订阅
+    - 当store订阅的state发生变化时，做一些相应的操作
+    - store.$subscribe(函数，配置对象)
+ */
+// stuStore.$subscribe(() => {
+//   console.log(' state发生变化了');
+// }, { detached: true })
+
+stuStore.$subscribe((mutation, state) => {
+  // mutation 表示修改的信息
+  // console.log('mutation', mutation, mutation.type);
+  // console.log('mutation', mutation);
+  // console.log('mutation', mutation.events);
+  console.log('mutation', mutation.events[0] === mutation.events[1]);
+
+  // if (state.token) {
+  //   // 表示登录，向本地存储中添加内容
+  // } else {
+  //   // 表示登出，从本地存储中移除内容
+  // }
+
+  // 使用订阅时不要在回调函数中直接修改state
+  // state.age++;
+  console.log(' state发生变化了', state, state.name);
+}, { detached: true })
+
 </script>
 
 <template>
