@@ -29,6 +29,9 @@
   4. 自动创建项目
       - `npm init vue@latest`
       - `yarn create vue`
+  5. 文件区分
+      - public: 动态资源，数据会发生改变
+      - assets: 静态资源，图片一般不会变
 
 ### 网页的渲染
   - 浏览器在渲染网页时，做了哪些事：

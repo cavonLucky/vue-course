@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 20:22:26
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-07 20:12:43
+ * @LastEditTime: 2023-06-07 21:02:57
  * @FilePath: /vue-course/03_vue/09_meals/src/components/Meals/Meals.vue
  * @Description: 所有的汉堡列表相关的组件
 -->
@@ -31,6 +31,6 @@ const meals = useMealsStore();
 .meals {
   height: calc(100vh - 120rem);
   overflow: auto;
-  /* padding: 120rem 0; */
+  padding-bottom: 160rem;
 }
 </style>

@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-07 20:05:10
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-07 20:40:29
+ * @LastEditTime: 2023-06-07 21:14:21
  * @FilePath: /vue-course/03_vue/09_meals/src/components/UI/Empty.vue
  * @Description: 无数据状态组件
 -->
@@ -14,7 +14,7 @@ const props = defineProps(['desc']);
 <template>
   <div class="empty">
     <div class="empty-image">
-      <img alt="no-data" src="/images/empty.png" />
+      <img alt="no-data" src="../../assets/empty.png" />
     </div>
     <div class="empty-description">{{ props.desc }}</div>
   </div>
