@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-07 20:05:10
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-07 20:13:34
+ * @LastEditTime: 2023-06-07 20:40:29
  * @FilePath: /vue-course/03_vue/09_meals/src/components/UI/Empty.vue
  * @Description: 无数据状态组件
 -->
@@ -28,23 +28,23 @@ const props = defineProps(['desc']);
   flex-direction: column;
   text-align: center;
   box-sizing: border-box;
-  padding: 100px 0;
+  padding: 200rem 0;
   background: #fff;
 }
 
 .empty-image {
-  width: 92px;
+  width: 176rem;
 }
 
 .empty-image img {
   width: 100%;
   height: 100%;
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .empty-description {
-  margin-top: 24px;
+  margin-top: 46rem;
   color: rgba(130, 130, 130, 1);
-  font-size: 20px;
+  font-size: 38rem;
 }
 </style>
