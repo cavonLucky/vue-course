@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 20:32:56
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-06 21:56:17
+ * @LastEditTime: 2023-06-07 19:49:06
  * @FilePath: /vue-course/03_vue/09_meals/src/components/Meals/Meal.vue
 -->
 
@@ -11,24 +11,22 @@
 import Counter from '../UI/Counter.vue';
 
 const props = defineProps(['meal']);
-const { meal } = props;
-console.log(meal);
 
 </script>
 
 <template>
   <div class="meal">
     <div class="img">
-      <img :src="meal.img" :alt="meal.title">
+      <img :src="props.meal.img" :alt="props.meal.title">
     </div>
     <div class="info">
       <div class="desc">
-        <h2>{{ meal.title }}</h2>
-        <p>{{ meal.desc }}</p>
+        <h2>{{ props.meal.title }}</h2>
+        <p>{{ props.meal.desc }}</p>
       </div>
 
       <div class="price-btn">
-        <span class="price">{{ meal.price }}</span>
+        <span class="price">{{ props.meal.price }}</span>
         <Counter />
       </div>
     </div>
@@ -78,7 +76,4 @@ console.log(meal);
 .price::before {
   content: '¥';
 }
-
-
-
 </style>

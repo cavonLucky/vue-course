@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 19:53:31
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-06 20:05:13
+ * @LastEditTime: 2023-06-07 19:43:56
  * @FilePath: /vue-course/03_vue/09_meals/src/store/meals.js
  */
 
@@ -60,6 +60,12 @@ export const useMealsStore = defineStore('meals', {
         price: 12,
         img: "/images/meals/7.png"
       }
-    ]
-  })
+    ],
+    keyword: ''
+  }),
+  getters: {
+    filterMeals: state => {
+      return state.data.filter(item => item.title.indexOf(state.keyword) != -1)
+    }
+  }
 });

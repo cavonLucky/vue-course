@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 17:50:59
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-07 18:18:29
+ * @LastEditTime: 2023-06-07 19:34:57
  * @FilePath: /vue-course/03_vue/09_meals/src/App.vue
 -->
 
@@ -13,7 +13,7 @@ import MealsFilter from './components/MealsFilter/MealsFilter.vue';
 
 
 const meals = useMealsStore();
-console.log(meals.data[0]);
+// console.log(meals.data[0]);
 
 </script>
 

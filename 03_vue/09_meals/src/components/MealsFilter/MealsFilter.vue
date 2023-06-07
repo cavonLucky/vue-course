@@ -2,15 +2,24 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 20:25:03
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-07 18:57:12
+ * @LastEditTime: 2023-06-07 19:43:23
  * @FilePath: /vue-course/03_vue/09_meals/src/components/MealsFilter/MealsFilter.vue
  * @Description: 对所有食物过滤的组件
 -->
 
+<script setup>
+import { useMealsStore } from '@/store/meals';
+
+const meals = useMealsStore();
+console.log(meals);
+
+
+</script>
+
 <template>
   <div class="filter">
     <div class="filter-inner">
-      <input type="text" placeholder="请输入关键字" class="filter-input">
+      <input type="text" placeholder="请输入关键字" class="filter-input" v-model="meals.keyword">
       <i class="ri-search-line"></i>
     </div>
   </div>

@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 20:22:26
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-07 18:59:42
+ * @LastEditTime: 2023-06-07 20:12:43
  * @FilePath: /vue-course/03_vue/09_meals/src/components/Meals/Meals.vue
  * @Description: 所有的汉堡列表相关的组件
 -->
@@ -11,9 +11,9 @@
 
 import Meal from './Meal.vue';
 import { useMealsStore } from '@/store/meals';
+import Empty from '../UI/Empty.vue';
 
 const meals = useMealsStore();
-console.log('pppp', meals);
 
 </script>
 
@@ -21,7 +21,9 @@ console.log('pppp', meals);
   <!-- 所有的汉堡的容器 -->
   <div class="meals">
     <!-- 显示商品信息 -->
-    <Meal v-for="item in meals.data" :key="item.id" :meal="item" />
+    <Meal v-for="item in meals.filterMeals" :key="item.id" :meal="item" />
+    <!-- <h2 v-if="meals.filterMeals.length === 0">没有找到指定的商品</h2> -->
+    <Empty v-if="meals.filterMeals.length === 0" :desc="'没有找到指定的商品'"/>
   </div>
 </template>
 
