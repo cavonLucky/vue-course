@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 20:23:57
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-07 22:18:14
+ * @LastEditTime: 2023-06-09 21:09:22
  * @FilePath: /vue-course/03_vue/09_meals/src/components/Cart/CartBar.vue
  * @Description: 所有和购物车相关的组件
 -->
@@ -10,6 +10,9 @@
 <script setup>
 
 import cartBag from '../../assets/bag.png';
+import { useMealsStore } from '@/store/meals';
+
+const meals = useMealsStore();
 
 </script>
 
@@ -17,11 +20,11 @@ import cartBag from '../../assets/bag.png';
   <div class="cart-bar">
     <div class="cart-bag">
       <img :src="cartBag" alt="购物袋">
-      <span class="total-count">{{ 5 }}</span>
+      <span class="total-count" v-show="meals.totalCount">{{ meals.totalCount }}</span>
     </div>
     <div class="total-amount">
-      <!-- <p class="no-goods">未选购商品</p> -->
-      <p class="has-goods">{{ 24 }}</p>
+      <p class="no-goods" v-show="meals.totalCount <= 0">未选购商品</p>
+      <p class="has-goods" v-show="meals.totalCount > 0">{{ meals.amount }}</p>
     </div>
     <button class="checkout">去结算</button>
   </div>

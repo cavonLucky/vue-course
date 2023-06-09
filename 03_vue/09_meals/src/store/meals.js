@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 19:53:31
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-09 20:15:49
+ * @LastEditTime: 2023-06-09 21:01:43
  * @FilePath: /vue-course/03_vue/09_meals/src/store/meals.js
  */
 
@@ -64,11 +64,33 @@ export const useMealsStore = defineStore('meals', {
     keyword: ''
   }),
   getters: {
+    // 过滤商品
     filterMeals: state => {
       return state.data.filter(item => item.title.indexOf(state.keyword) != -1)
+    },
+    // 获取购物车中的所有商品
+    cartMelas: state => {
+      return state.data.filter(item => item.count > 0)
+    },
+    // 获取购物车中商品的总数量
+    totalCount: state => {
+      // 计算商品的总数, 如果购物车中没有商品直接返回0
+      if (state.cartMelas.length <= 0) {
+        return 0;
+      }
+      // 购物车中有商品，计算商品的总数量
+      return state.cartMelas.reduce((result, item) => result + item.count, 0);
+    },
+    // 获取购物车中商品的总价格
+    amount: state => {
+      if (state.cartMelas.length <= 0) {
+        return 0;
+      }
+      return state.cartMelas.reduce((result, item) => result + item.count * item.price, 0);
     }
   },
   actions: {
+    // 添加商品
     addMealToCart(meal) {
       // 修改购买食物的数量
       // meal还没有添加到购物车中
@@ -77,9 +99,11 @@ export const useMealsStore = defineStore('meals', {
       }
       meal.count++;
     },
+    // 删除商品
     subMealFromCart(meal) {
       if (isNaN(meal.count) || meal.count <= 0) return;
       meal.count--;
-    }
+    },
+
   }
 });
