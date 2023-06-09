@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 19:53:31
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-07 19:43:56
+ * @LastEditTime: 2023-06-09 20:15:49
  * @FilePath: /vue-course/03_vue/09_meals/src/store/meals.js
  */
 
@@ -66,6 +66,20 @@ export const useMealsStore = defineStore('meals', {
   getters: {
     filterMeals: state => {
       return state.data.filter(item => item.title.indexOf(state.keyword) != -1)
+    }
+  },
+  actions: {
+    addMealToCart(meal) {
+      // 修改购买食物的数量
+      // meal还没有添加到购物车中
+      if (isNaN(meal.count)) {
+        meal.count = 0;
+      }
+      meal.count++;
+    },
+    subMealFromCart(meal) {
+      if (isNaN(meal.count) || meal.count <= 0) return;
+      meal.count--;
     }
   }
 });

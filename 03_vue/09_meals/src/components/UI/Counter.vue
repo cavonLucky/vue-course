@@ -2,23 +2,28 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 21:46:54
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-06 22:08:40
+ * @LastEditTime: 2023-06-09 20:17:07
  * @FilePath: /vue-course/03_vue/09_meals/src/components/UI/Counter.vue
  * @Description: 控制商品的数量组件
 -->
 
 <script setup>
-import { ref } from 'vue';
-const count = ref(0);
+// import { ref } from 'vue';
+// const count = ref(0);
+
+import { useMealsStore } from '@/store/meals';
+const meals = useMealsStore();
+const props = defineProps(['meal']);
+
 </script>
 
 <template>
   <div class="counter">
-    <template v-if="count > 0">
-      <button class="sub" @click="count--"><i class="ri-subtract-line"></i></button>
-      <span class="count">{{ count }}</span>
+    <template v-if="props.meal.count > 0">
+      <button class="sub" @click="meals.subMealFromCart(props.meal)"><i class="ri-subtract-line"></i></button>
+      <span class="count">{{ props.meal.count }}</span>
     </template>
-    <button class="add" @click="count++"><i class="ri-add-line"></i></button>
+    <button class="add" @click="meals.addMealToCart(props.meal)"><i class="ri-add-line"></i></button>
   </div>
 </template>
 
