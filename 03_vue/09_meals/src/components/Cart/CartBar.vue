@@ -2,31 +2,39 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 20:23:57
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-09 21:09:22
+ * @LastEditTime: 2023-07-03 13:37:55
  * @FilePath: /vue-course/03_vue/09_meals/src/components/Cart/CartBar.vue
  * @Description: 所有和购物车相关的组件
 -->
 
 <script setup>
-
-import cartBag from '../../assets/bag.png';
-import { useMealsStore } from '@/store/meals';
+import CartDetails from "./CartDetails.vue";
+import cartBag from "../../assets/bag.png";
+import { useMealsStore } from "@/store/meals";
+import { ref } from "vue";
 
 const meals = useMealsStore();
 
+const showDetails = ref(false);
 </script>
 
 <template>
-  <div class="cart-bar">
-    <div class="cart-bag">
-      <img :src="cartBag" alt="购物袋">
-      <span class="total-count" v-show="meals.totalCount">{{ meals.totalCount }}</span>
+  <div>
+    <CartDetails :is-show="showDetails" @hide="showDetails = false" />
+    
+    <div class="cart-bar">
+      <div class="cart-bag">
+        <img :src="cartBag" alt="购物袋" />
+        <span class="total-count" v-show="meals.totalCount">{{ meals.totalCount }}</span>
+      </div>
+      <div class="total-amount">
+        <p class="no-goods" v-show="meals.totalCount <= 0">未选购商品</p>
+        <p class="has-goods" v-show="meals.totalCount > 0" @click="showDetails = !showDetails">
+          {{ meals.amount }}
+        </p>
+      </div>
+      <button class="checkout">去结算</button>
     </div>
-    <div class="total-amount">
-      <p class="no-goods" v-show="meals.totalCount <= 0">未选购商品</p>
-      <p class="has-goods" v-show="meals.totalCount > 0">{{ meals.amount }}</p>
-    </div>
-    <button class="checkout">去结算</button>
   </div>
 </template>
 
@@ -41,6 +49,7 @@ const meals = useMealsStore();
   right: 0;
   margin: 0 auto;
   border-radius: 60rem;
+  z-index: 9999;
 }
 
 .cart-bag {
@@ -81,7 +90,7 @@ const meals = useMealsStore();
 }
 
 .has-goods::before {
-  content: '¥';
+  content: "¥";
   font-size: 26rem;
 }
 
