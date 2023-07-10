@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 19:53:31
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-09 21:01:43
+ * @LastEditTime: 2023-07-10 15:46:32
  * @FilePath: /vue-course/03_vue/09_meals/src/store/meals.js
  */
 
@@ -104,6 +104,8 @@ export const useMealsStore = defineStore('meals', {
       if (isNaN(meal.count) || meal.count <= 0) return;
       meal.count--;
     },
-
+    clearCart() {
+      this.cartMelas.forEach(element => (element.count = 0));
+    }
   }
 });

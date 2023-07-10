@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 20:23:57
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-07-03 13:37:55
+ * @LastEditTime: 2023-07-03 13:52:15
  * @FilePath: /vue-course/03_vue/09_meals/src/components/Cart/CartBar.vue
  * @Description: 所有和购物车相关的组件
 -->
@@ -21,7 +21,7 @@ const showDetails = ref(false);
 <template>
   <div>
     <CartDetails :is-show="showDetails" @hide="showDetails = false" />
-    
+
     <div class="cart-bar">
       <div class="cart-bag">
         <img :src="cartBag" alt="购物袋" />
@@ -29,7 +29,7 @@ const showDetails = ref(false);
       </div>
       <div class="total-amount">
         <p class="no-goods" v-show="meals.totalCount <= 0">未选购商品</p>
-        <p class="has-goods" v-show="meals.totalCount > 0" @click="showDetails = !showDetails">
+        <p class="has-goods" v-show="meals.totalCount > 0" @click="showDetails = true">
           {{ meals.amount }}
         </p>
       </div>

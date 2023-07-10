@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 20:32:56
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-06-09 20:12:27
+ * @LastEditTime: 2023-07-10 15:20:10
  * @FilePath: /vue-course/03_vue/09_meals/src/components/Meals/Meal.vue
 -->
 
@@ -10,7 +10,7 @@
 
 import Counter from '../UI/Counter.vue';
 
-const props = defineProps(['meal']);
+const props = defineProps(['meal', 'desc']);
 
 </script>
 
@@ -22,7 +22,7 @@ const props = defineProps(['meal']);
     <div class="info">
       <div class="desc">
         <h2>{{ props.meal.title }}</h2>
-        <p>{{ props.meal.desc }}</p>
+        <p v-show="desc">{{ props.meal.desc }}</p>
       </div>
 
       <div class="price-btn">
