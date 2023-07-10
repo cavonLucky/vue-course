@@ -2,7 +2,7 @@
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-07-03 13:34:44
  * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-07-10 15:47:01
+ * @LastEditTime: 2023-07-10 16:57:10
  * @FilePath: /vue-course/03_vue/09_meals/src/components/Cart/CartDetails.vue
  * @Description: 购物车详情-添加商品后的详情页
 -->
@@ -37,22 +37,19 @@ const meals = useMealsStore();
   bottom: 0;
   width: 750rem;
   background-color: #fff;
-  max-height: 80%;
-  overflow: auto;
   border-top-left-radius: 40rem;
   border-top-right-radius: 40rem;
 }
 
 .meals {
-  height: 100%;
-  padding-top: 40rem;
+  height: auto;
+  max-height: calc(280rem * 4);
 }
 
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 20rem 40rem 0;
-  position: fixed;
+  padding: 20rem 40rem;
   width: 750rem;
   background-color: #fff;
   border-top-left-radius: 40rem;
