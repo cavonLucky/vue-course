@@ -1,8 +1,8 @@
 <!--
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-07-03 13:34:44
- * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-07-31 13:18:21
+ * @LastEditors: chengfun 425247833@qq.com
+ * @LastEditTime: 2023-08-08 19:34:36
  * @FilePath: /vue-course/03_vue/09_meals/src/components/Cart/CartDetails.vue
  * @Description: 购物车详情-添加商品后的详情页
 -->
@@ -28,8 +28,6 @@ const okHandler = () => {
   showDialog.value = false;
   emits('hide');
 }
-
-
 
 </script>
 

@@ -1,8 +1,8 @@
 <!--
  * @Author: chengxy666 425247833@qq.com
  * @Date: 2023-06-06 20:23:57
- * @LastEditors: chengxy666 425247833@qq.com
- * @LastEditTime: 2023-07-03 13:52:15
+ * @LastEditors: chengfun 425247833@qq.com
+ * @LastEditTime: 2023-08-08 19:34:31
  * @FilePath: /vue-course/03_vue/09_meals/src/components/Cart/CartBar.vue
  * @Description: 所有和购物车相关的组件
 -->
@@ -12,14 +12,19 @@ import CartDetails from "./CartDetails.vue";
 import cartBag from "../../assets/bag.png";
 import { useMealsStore } from "@/store/meals";
 import { ref } from "vue";
+import Checkout from "../Checkout/Checkout.vue";
 
 const meals = useMealsStore();
 
 const showDetails = ref(false);
+const showCheckout = ref(false);
+
 </script>
 
 <template>
   <div>
+    <Checkout :is-show="showCheckout" @close="showCheckout = false"></Checkout>
+
     <CartDetails :is-show="showDetails" @hide="showDetails = false" />
 
     <div class="cart-bar">
@@ -33,7 +38,7 @@ const showDetails = ref(false);
           {{ meals.amount }}
         </p>
       </div>
-      <button class="checkout">去结算</button>
+      <button class="checkout-btn" @click="showCheckout = meals.totalCount > 0">去结算</button>
     </div>
   </div>
 </template>
@@ -94,7 +99,7 @@ const showDetails = ref(false);
   font-size: 26rem;
 }
 
-.checkout {
+.checkout-btn {
   position: absolute;
   top: 0;
   right: 0;
